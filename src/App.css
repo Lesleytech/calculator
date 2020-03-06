@@ -18,11 +18,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px;
 }
 
 #calculator {
   width: 100%;
-  max-width: 200px;
+  max-width: 320px;
   display: flex;
   flex-direction: column;
   padding: 10px;
@@ -31,14 +32,19 @@ body {
 }
 
 input {
+  height: 40px;
   width: 100%;
   border: none;
   background: #bbb;
   font-family: digital;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 22px;
 }
 
+button {
+  height: 50px !important;
+  font-size: 18px !important;
+}
 button:focus {
   box-shadow: none !important;
 }
@@ -47,7 +53,7 @@ button:focus {
   margin-top: 10px;
   width: 100%;
   display: grid;
-  grid-gap: 5px;
+  grid-gap: 7px;
   grid-template-areas:
     "left-bracket right-bracket clear answer"
     "seven eight nine add"
@@ -130,5 +136,4 @@ button:focus {
 }
 #author-comment > span {
   color: red;
-  font-size: 16px;
 }
