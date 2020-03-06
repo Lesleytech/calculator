@@ -1,4 +1,5 @@
 import React from "react";
+import "./App.css";
 import { evaluate } from "mathjs";
 
 class App extends React.Component {
@@ -233,6 +234,12 @@ class App extends React.Component {
             </button>
           </div>
         </div>
+        <small
+          style={{ position: "absolute", bottom: 10, textAlign: "center" }}
+        >
+          Coded with <span style={{ color: "red", fontSize: 16 }}>♥</span> by
+          Lafen Lesley
+        </small>
       </div>
     );
   }
