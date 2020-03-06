@@ -1,0 +1,117 @@
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background: #f3fcff;
+  display: flex;
+}
+
+#container {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#calculator {
+  width: 100%;
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background: #333;
+  border-radius: 5px;
+}
+
+input {
+  width: 100%;
+  border: none;
+  background: #bbb;
+}
+
+button:focus {
+  box-shadow: none !important;
+}
+
+#calculator-body {
+  margin-top: 10px;
+  width: 100%;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-areas:
+    "left-bracket right-bracket clear answer"
+    "seven eight nine add"
+    "four five six multiply"
+    "one two three subtract"
+    "decimal zero divide equals";
+}
+
+#zero {
+  grid-area: zero;
+}
+#one {
+  grid-area: one;
+}
+#two {
+  grid-area: two;
+}
+#three {
+  grid-area: three;
+}
+#four {
+  grid-area: four;
+}
+#five {
+  grid-area: five;
+}
+#six {
+  grid-area: six;
+}
+#seven {
+  grid-area: seven;
+}
+#eight {
+  grid-area: eight;
+}
+#nine {
+  grid-area: nine;
+}
+#add {
+  grid-area: add;
+}
+#subtract {
+  grid-area: subtract;
+}
+#multiply {
+  grid-area: multiply;
+}
+#divide {
+  grid-area: divide;
+}
+
+#equals {
+  grid-area: equals;
+}
+
+#clear {
+  grid-area: clear;
+}
+
+#left-bracket {
+  grid-area: left-bracket;
+}
+
+#right-bracket {
+  grid-area: right-bracket;
+}
+
+#decimal {
+  grid-area: decimal;
+}
+
+#answer {
+  grid-area: answer;
+}
