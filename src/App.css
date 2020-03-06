@@ -1,3 +1,7 @@
+@font-face {
+  font-family: digital;
+  src: url(./fonts/digital-7.ttf);
+}
 body {
   padding: 0;
   margin: 0;
@@ -30,6 +34,9 @@ input {
   width: 100%;
   border: none;
   background: #bbb;
+  font-family: digital;
+  font-weight: 700;
+  font-size: 18px;
 }
 
 button:focus {
@@ -46,7 +53,7 @@ button:focus {
     "seven eight nine add"
     "four five six multiply"
     "one two three subtract"
-    "decimal zero divide equals";
+    "decimal zero equals divide";
 }
 
 #zero {
@@ -114,4 +121,14 @@ button:focus {
 
 #answer {
   grid-area: answer;
+}
+
+#author-comment {
+  position: absolute;
+  bottom: 5px;
+  text-align: center;
+}
+#author-comment > span {
+  color: red;
+  font-size: 16px;
 }

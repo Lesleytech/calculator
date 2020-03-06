@@ -1,6 +1,8 @@
 import React from "react";
-import "./App.css";
+import "bootstrap/dist/css/bootstrap.css";
 import { evaluate } from "mathjs";
+
+import "./App.css";
 
 class App extends React.Component {
   constructor() {
@@ -20,9 +22,28 @@ class App extends React.Component {
     }
   };
   handleClick = event => {
-    const { value, id } = event.target;
+    const { value } = event.target;
 
     switch (value) {
+      case "+":
+      case "-":
+      case "*":
+      case "/":
+        if (/[-*+/]$/g.test(this.state.expression)) {
+          this.setState(() => {
+            let expressionArr = [...this.state.expression.split("")];
+            expressionArr[expressionArr.length - 1] = value;
+            return {
+              expression: expressionArr.join("")
+            };
+          });
+        } else {
+          this.setState(prevState => {
+            prevState.expression += value;
+            return { expression: prevState.expression, calculated: false };
+          });
+        }
+        break;
       case "calculate":
         this.setState(prevState => {
           return {
@@ -217,7 +238,7 @@ class App extends React.Component {
               )
             </button>
             <button
-              value={this.state.result != "E" ? this.state.result : ""}
+              value={this.state.result !== "E" ? this.state.result : ""}
               id="answer"
               className="btn btn-sm btn-secondary"
               onClick={this.handleClick}
@@ -234,11 +255,8 @@ class App extends React.Component {
             </button>
           </div>
         </div>
-        <small
-          style={{ position: "absolute", bottom: 10, textAlign: "center" }}
-        >
-          Coded with <span style={{ color: "red", fontSize: 16 }}>♥</span> by
-          Lafen Lesley
+        <small id="author-comment">
+          Coded with <span>♥</span> by Lafen Lesley
         </small>
       </div>
     );
