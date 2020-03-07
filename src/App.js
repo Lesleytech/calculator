@@ -85,6 +85,13 @@ class App extends React.Component {
   render() {
     return (
       <div id="container">
+        <div id="display-warning">
+          <h3>Sorry, your display is not supported!</h3>
+          <small className="text-muted">
+            Change the orientation of your device or resize your browser window
+            to continue.
+          </small>
+        </div>
         <div id="calculator">
           <div id="calculator-screen">
             <input
@@ -260,7 +267,7 @@ class App extends React.Component {
             <button
               value="backspace"
               id="backspace"
-              className="btn btn-sm btn-secondary"
+              className="btn btn-sm btn-warning"
               onClick={this.handleClick}
             >
               ⇦

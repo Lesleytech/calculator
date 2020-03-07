@@ -2,14 +2,6 @@
   font-family: digital;
   src: url(./fonts/digital-7.ttf);
 }
-body {
-  padding: 0;
-  margin: 0;
-  height: 100%;
-  width: 100%;
-  background: #f3fcff;
-  display: flex;
-}
 
 #container {
   position: absolute;
@@ -144,4 +136,17 @@ button:focus {
 }
 #author-comment > span {
   color: red;
+}
+
+#display-warning {
+  display: none;
+}
+
+@media (max-height: 560px) {
+  #calculator {
+    display: none;
+  }
+  #display-warning {
+    display: block;
+  }
 }
