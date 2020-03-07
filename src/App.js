@@ -18,18 +18,24 @@ class App extends React.Component {
     try {
       return evaluate(exp);
     } catch (error) {
-      return "E";
+      return "Error";
     }
   };
-  handleClick = event => {
-    const { value } = event.target;
 
+  handleClick = event => {
+    const { value, id } = event.target;
     switch (value) {
       case "+":
       case "-":
       case "*":
       case "/":
-        if (/[-*+/]$/g.test(this.state.expression)) {
+      case "^":
+        if (
+          (this.state.expression === "" && value !== "-") ||
+          this.state.expression === "-"
+        ) {
+          break;
+        } else if (/[-*+^/]$/g.test(this.state.expression)) {
           this.setState(() => {
             let expressionArr = [...this.state.expression.split("")];
             expressionArr[expressionArr.length - 1] = value;
@@ -44,13 +50,16 @@ class App extends React.Component {
           });
         }
         break;
+      case "backspace":
+        !this.state.calculated &&
+          this.setState(prevState => {
+            return { expression: prevState.expression.slice(0, -1) };
+          });
+        break;
       case "calculate":
         this.setState(prevState => {
           return {
-            expression:
-              this.handleCalculate(prevState.expression) === "E"
-                ? ""
-                : this.handleCalculate(prevState.expression),
+            expression: "",
             result: this.handleCalculate(prevState.expression),
             calculated: true
           };
@@ -60,6 +69,9 @@ class App extends React.Component {
         this.setState({ expression: "", result: 0, calculated: false });
         break;
       default:
+        if (id === "answer" && /[^-*+/]$/g.test(this.state.expression)) {
+          break;
+        }
         if (this.state.calculated === true && /[\d()]/g.test(value)) {
           this.setState({ expression: value, calculated: false });
         } else {
@@ -246,12 +258,28 @@ class App extends React.Component {
               Ans
             </button>
             <button
+              value="backspace"
+              id="backspace"
+              className="btn btn-sm btn-secondary"
+              onClick={this.handleClick}
+            >
+              ⇦
+            </button>
+            <button
               value="."
               id="decimal"
               className="btn btn-sm btn-secondary"
               onClick={this.handleClick}
             >
               .
+            </button>
+            <button
+              value={"^"}
+              id="exponent"
+              className="btn btn-sm btn-secondary"
+              onClick={this.handleClick}
+            >
+              x<sup>y</sup>
             </button>
           </div>
         </div>

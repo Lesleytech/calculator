@@ -12,7 +12,7 @@ body {
 }
 
 #container {
-  position: fixed;
+  position: absolute;
   height: 100%;
   width: 100%;
   display: flex;
@@ -32,13 +32,12 @@ body {
 }
 
 input {
-  height: 40px;
   width: 100%;
   border: none;
   background: #bbb;
   font-family: digital;
   font-weight: 700;
-  font-size: 22px;
+  font-size: 26px;
 }
 
 button {
@@ -55,11 +54,12 @@ button:focus {
   display: grid;
   grid-gap: 7px;
   grid-template-areas:
-    "left-bracket right-bracket clear answer"
-    "seven eight nine add"
-    "four five six multiply"
-    "one two three subtract"
-    "decimal zero equals divide";
+    ". . answer clear"
+    "left-bracket right-bracket backspace add"
+    "seven eight nine multiply"
+    "four five six subtract"
+    "one two three divide"
+    "decimal zero exponent equals";
 }
 
 #zero {
@@ -127,6 +127,14 @@ button:focus {
 
 #answer {
   grid-area: answer;
+}
+
+#backspace {
+  grid-area: backspace;
+}
+
+#exponent {
+  grid-area: exponent;
 }
 
 #author-comment {
