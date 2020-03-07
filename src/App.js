@@ -270,7 +270,7 @@ class App extends React.Component {
               className="btn btn-sm btn-warning"
               onClick={this.handleClick}
             >
-              ⇦
+              ➔
             </button>
             <button
               value="."

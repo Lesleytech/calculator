@@ -123,6 +123,8 @@ button:focus {
 
 #backspace {
   grid-area: backspace;
+  color: white !important;
+  transform: rotate(180deg);
 }
 
 #exponent {
