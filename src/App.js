@@ -290,8 +290,9 @@ class App extends React.Component {
             </button>
           </div>
         </div>
-        <small id="author-comment">
-          Coded with <span>♥</span> by Lafen Lesley
+        <small id="author-comment" className="text-muted">
+          Coded with <span>♥</span> by{" "}
+          <a href="mailto:lesleytech6@gmail.com">Lafen Lesley</a>
         </small>
       </div>
     );
